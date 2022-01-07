@@ -8,14 +8,15 @@
 		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.gisnet.egisfil</groupId>
-	<artifactId>gestor</artifactId>
+	<groupId>com.gisnet</groupId>
+	<artifactId>egisfil</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gestor</name>
-	<description>Demo project for Spring Boot</description>
+	<description>App Manager</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+        <packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -41,9 +42,15 @@
 	  <version>4.3.0</version>
 	  <type>jar</type>
 	 </dependency>
+         <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <scope>provided</scope>
+                </dependency>
 	</dependencies>
 
 	<build>
+            <finalName>gestor</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
