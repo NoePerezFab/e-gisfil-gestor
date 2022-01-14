@@ -21,7 +21,7 @@ public class MostradorController {
     
     private ObjectMapper maper = new ObjectMapper();
     
-    @GetMapping("/api/mostradores")
+    /*@GetMapping("/api/mostradores")
     public String getMostradores() throws JsonProcessingException{
         List<Mostrador> lista = repo.findAll();
         return maper.writeValueAsString(lista);
@@ -45,5 +45,5 @@ public class MostradorController {
         }else{
             return "No existe un mostrador co nesa clave";
         }
-    }
+    }*/
 }

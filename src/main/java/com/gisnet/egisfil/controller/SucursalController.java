@@ -5,6 +5,7 @@ import com.couchbase.client.core.deps.com.fasterxml.jackson.core.JsonProcessingE
 import com.couchbase.client.core.deps.com.fasterxml.jackson.databind.ObjectMapper;
 import com.gisnet.egisfil.RepositoryService.ServiciosRepositoryService;
 import com.gisnet.egisfil.RepositoryService.SucursalRepositoryService;
+import com.gisnet.egisfil.domain.Mostrador;
 import com.gisnet.egisfil.domain.Servicios;
 import com.gisnet.egisfil.domain.Sucursal;
 import com.gisnet.egisfil.util.AddServiceRequest;
@@ -78,5 +79,26 @@ public class SucursalController {
         lista.add(servicio);
         sucursal.setServicios(lista);
         return maper.writeValueAsString(repo.update(sucursal));
+    }
+    
+    @PostMapping("/api/addmostrador")
+    public String addMostrador(@RequestBody Sucursal s){
+        if(repo.findOne(s.getId()).isEmpty()){
+            return "No existe esa sucursal";
+        }
+        Sucursal sucursal = repo.findOne(s.getId()).get();
+        List<Mostrador> lista = sucursal.getMostradores();
+        if(lista == null){
+            lista = new ArrayList<>();
+        }
+        for(Mostrador m : lista){
+            if(m.getClave().compareTo(s.getMostradores().get(0).getClave()) == 0){
+                return "Ya existe un mostrador con esa clave en esta sucursal";
+            }
+        }
+        lista.add(s.getMostradores().get(0));
+        sucursal.setMostradores(lista);
+        repo.update(sucursal);
+        return "Mostrador Añadido con exito";
     }
 }
