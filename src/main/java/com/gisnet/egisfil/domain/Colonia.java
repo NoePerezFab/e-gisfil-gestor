@@ -5,7 +5,11 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.repository.Collection;
+import org.springframework.data.couchbase.repository.Scope;
 
+@Scope("configuracion")
+@Collection("colonia")
 @Document
 public class Colonia implements Serializable{
     
@@ -17,9 +21,6 @@ public class Colonia implements Serializable{
     
     @Field
     private String nombre;
-    
-    @Field
-    private String nombre_corto;
     
     @Field
     private String type = "colonia";
@@ -45,9 +46,7 @@ public class Colonia implements Serializable{
         return nombre;
     }
 
-    public String getNombre_corto() {
-        return nombre_corto;
-    }
+
 
     public void setId(String id) {
         this.id = id;
@@ -61,9 +60,7 @@ public class Colonia implements Serializable{
         this.nombre = nombre;
     }
 
-    public void setNombre_corto(String nombre_corto) {
-        this.nombre_corto = nombre_corto;
-    }
+
     
     
     
