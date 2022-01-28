@@ -23,6 +23,39 @@ public class Colonia implements Serializable{
     private String nombre;
     
     @Field
+    private String cp;
+
+    @Field
+    private String estado;
+    
+    @Field
+    private String municipio;
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+    
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    public String getCp() {
+        return cp;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+    
+    @Field
     private String type = "colonia";
 
     public String getType() {
@@ -45,6 +78,7 @@ public class Colonia implements Serializable{
     public String getNombre() {
         return nombre;
     }
+    
 
 
 

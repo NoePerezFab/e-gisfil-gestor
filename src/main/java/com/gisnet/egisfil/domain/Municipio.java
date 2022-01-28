@@ -22,8 +22,17 @@ public class Municipio implements Serializable {
     @Field
     private String nombre;
     
+    @Field
+    private String estado;
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
+    public String getEstado() {
+        return estado;
+    }
+    
     @Field
     private String type = "municipio";
 
