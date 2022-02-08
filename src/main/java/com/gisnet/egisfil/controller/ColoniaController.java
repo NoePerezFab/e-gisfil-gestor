@@ -47,7 +47,7 @@ public class ColoniaController {
     }
     @PostMapping("/api/updatecolonia")
     public String obtenerColonia(@RequestBody Colonia colonia) throws JsonProcessingException{
-        if(repo.findByCodigoPostal(colonia.getCp()).isPresent()){
+        if(repo.findByCodigoPostal(colonia.getCp()).isEmpty()){
             return maper.writeValueAsString(repo.update(colonia));
         }else{
             return "No existe una colonia con ese codigo postal";
