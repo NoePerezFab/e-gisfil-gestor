@@ -11,4 +11,5 @@ public interface ColoniaService {
     List<Colonia> findAll();
     Colonia create(Colonia colonia);
     Colonia update(Colonia colonia);
+    public List<Colonia> findByCodigoPostal(String cp);
 }

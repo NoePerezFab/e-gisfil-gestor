@@ -39,5 +39,12 @@ public class ColoniaRepositoryService implements ColoniaService {
     public Colonia update(Colonia colonia) {
         return repo.save(colonia);
     }
+
+    @Override
+    public List<Colonia> findByCodigoPostal(String cp) {
+        return repo.findByCodigoPostal(cp);
+    }
+
+    
     
 }

@@ -37,7 +37,7 @@ public class ColoniaController {
         return maper.writeValueAsString(repo.create(colonia));
     }
     
-    @PostMapping("/api/updateColonia")
+    @PostMapping("/api/updatecolonia")
     public String updateColonia(@RequestBody Colonia colonia) throws JsonProcessingException{
         if(repo.findOne(colonia.getId()).isPresent()){
             return maper.writeValueAsString(repo.update(colonia));
@@ -45,5 +45,12 @@ public class ColoniaController {
             return "No existe una colonia con esa clave";
         }
     }
-    
+    @PostMapping("/api/updatecolonia")
+    public String obtenerColonia(@RequestBody Colonia colonia) throws JsonProcessingException{
+        if(repo.findByCodigoPostal(colonia.getCp()).isPresent()){
+            return maper.writeValueAsString(repo.update(colonia));
+        }else{
+            return "No existe una colonia con ese codigo postal";
+        }
+    }
 }
