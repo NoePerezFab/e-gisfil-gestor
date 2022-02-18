@@ -39,5 +39,15 @@ public class ClienteRepositoryService implements ClienteService{
     public Cliente update(Cliente cliente) {
        return repo.save(cliente);
     }
+
+    @Override
+    public Optional<Cliente> findByNumeroTarjeta(String numeroTarjeta) {
+        return repo.findByNumeroTarjeta(numeroTarjeta);
+    }
+
+    @Override
+    public Optional<Cliente> findByNumeroCliente(String numeroCliente) {
+        return repo.findByNumeroCliente(numeroCliente);
+    }
     
 }

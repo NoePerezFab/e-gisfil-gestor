@@ -43,4 +43,20 @@ public class ClienteController {
         }
         return "No existe un cliente con ese numero de ciente";
     }
+    
+    @PostMapping("/api/buscarcliente")
+    public String buscarCliente(@RequestBody Cliente cliente) throws JsonProcessingException{
+        if(cliente.getNumero_cliente() != null){
+            if(repo.findByNumeroCliente(cliente.getNumero_cliente()).isPresent()){
+                return maper.writeValueAsString(repo.findByNumeroCliente(cliente.getNumero_cliente()).get());
+            }
+            return "No existe cliente con ese numero de cliente";
+        }else if(cliente.getNumero_tarjeta() != null){
+            if(repo.findByNumeroTarjeta(cliente.getNumero_tarjeta()).isPresent()){
+                return maper.writeValueAsString(repo.findByNumeroTarjeta(cliente.getNumero_tarjeta()).get());
+            }
+            return "No existe cliente con ese numero de tarjeta";
+        }
+        return "Error";
+    }
 }

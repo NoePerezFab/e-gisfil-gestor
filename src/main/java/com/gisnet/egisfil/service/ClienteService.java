@@ -12,4 +12,6 @@ public interface ClienteService {
     List<Cliente> findAll();
     Cliente create(Cliente cliente);
     Cliente update(Cliente cliente);
+    Optional<Cliente> findByNumeroTarjeta(String numeroTarjeta);
+    Optional<Cliente> findByNumeroCliente(String numeroCliente);
 }
