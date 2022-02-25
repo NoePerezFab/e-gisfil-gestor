@@ -31,7 +31,31 @@ public class Servicios implements Serializable{
     private boolean servicio_cliente;
     
     @Field
+    private int ponderacion;
+    
+    @Field
+    private int tiempo_maximo_espera;
+    
+    @Field
     private String type;
+
+    public int getPonderacion() {
+        return ponderacion;
+    }
+
+    public int getTiempo_maximo_espera() {
+        return tiempo_maximo_espera;
+    }
+
+    public void setPonderacion(int ponderacion) {
+        this.ponderacion = ponderacion;
+    }
+
+    public void setTiempo_maximo_espera(int tiempo_maximo_espera) {
+        this.tiempo_maximo_espera = tiempo_maximo_espera;
+    }
+    
+    
 
     public boolean isServicio_cliente() {
         return servicio_cliente;
